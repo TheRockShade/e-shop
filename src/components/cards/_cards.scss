@@ -1,0 +1,63 @@
+.cards {
+  max-width: 750px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    @include media_interval($media768, 0) {
+      @include flex-columns(4, 30px, 30px);
+    }
+
+    @include media_interval($media600, $media768) {
+      @include flex-columns(3, 30px, 30px);
+    }
+
+    @include media_interval(0, $media600) {
+      @include flex-columns(2, 30px, 30px);
+    }
+  }
+
+  &__img {
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    margin-bottom: 15px;
+
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__price {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &__basket {
+    padding: 0;
+
+    font-size: 24px;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    transition: opacity .3s ease;
+
+    &:hover,
+    &:focus {
+      opacity: .7;
+    }
+
+    &:active {
+      opacity: .5;
+    }
+  }
+}

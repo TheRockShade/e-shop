@@ -33,6 +33,10 @@
 
     &-text {
       font-weight: 700;
+
+      @include media_interval(0, $media768) {
+        font-size: 0;
+      }
     }
   }
 
@@ -51,6 +55,11 @@
     &:active {
       opacity: .5;
     }
+
+    @include media_interval(0, $media768) {
+      width: 120px;
+      height: 27px;
+    }
   }
 
   &__bar {
@@ -60,8 +69,6 @@
     }
     
     &-link {
-      color: #000;
-
       transition: opacity .3s ease;
 
       &:hover,
