@@ -1,0 +1,77 @@
+.header {
+  padding: 14px 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    transition: opacity .3s ease;
+
+    &:hover,
+    &:focus {
+      opacity: .7;
+    }
+
+    &:active {
+      opacity: .5;
+    }
+
+    &-icon {
+      font-size: 22.4px;
+      margin-right: 10px;
+    }
+
+    &-text {
+      font-weight: 700;
+    }
+  }
+
+  &__logo {
+    transition: opacity .3s ease;
+
+    &-item {
+      pointer-events: none;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: .7;
+    }
+
+    &:active {
+      opacity: .5;
+    }
+  }
+
+  &__bar {
+
+    &-item {
+      font-size: 24px;
+    }
+    
+    &-link {
+      color: #000;
+
+      transition: opacity .3s ease;
+
+      &:hover,
+      &:focus {
+        opacity: .7;
+      }
+
+      &:active {
+        opacity: .5;
+      }
+    }
+  }
+}

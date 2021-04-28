@@ -86,7 +86,6 @@ $media400: 400px;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  display: block;
 
   @include media_interval($media1200, 0) {
     padding: 0 110px;
@@ -110,7 +109,7 @@ $media400: 400px;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'PT Root', sans-serif;
 }
 
 a {
