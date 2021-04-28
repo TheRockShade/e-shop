@@ -1,28 +1,145 @@
-// Подключение компонентов
 @import "./header/header";
 @import "./footer/footer";
 
-body {
-  font-family: Oswald, sans-serif;
+$media1200: 1200px;
+$media1024: 1024px;
+$media900: 900px;
+$media768: 768px;
+$media640: 640px;
+$media600: 600px;
+$media480: 480px;
+$media400: 400px;
+
+@mixin media_interval($args...) {
+  $from: 0;
+  $to: 0;
+  $line: "";
+
+  $first: nth($args, 1);
+  @if (type_of($first) == list) {
+    $from: nth($first, 1);
+    $to: nth($first, 2);
+  } @else {
+    $from: nth($args, 1);
+    $to: nth($args, 2);
+  }
+
+  @if $from > 0 {
+    $line: "(min-width: #{$from})";
+  }
+
+  @if $to > 0 {
+    @if $from > 0 {
+      $line: "#{$line} and (max-width: #{$to - 1px})";
+    } @else {
+      $line: "(max-width: #{$to - 1px})";
+    }
+  }
+
+  @media all and #{$line} {
+    @content;
+  }
+}
+
+@mixin flex-columns($columns, $margin-right:null, $margin-top:null) {
+  $min_basis: 100% / ($columns + 1);
+  $max_basis: 100% / $columns;
+  $basis: min($min_basis + 0.5%, ($min_basis + $max_basis) / 2);
+  flex: 1 0 $basis;
+
+  @if ($margin-top) {
+    &:nth-of-type(n+#{$columns+1}) {
+      margin-top: $margin-top;
+    }
+  }
+
+  @if ($margin-right) {
+    @if (str_index(#{$margin-right}, '%')) {
+      max-width: #{$max_basis - (($columns - 1) * $margin-right) / $columns};
+    } @else {
+      max-width: calc(#{$max_basis} - #{(($columns - 1) * $margin-right) / $columns});
+    }
+
+    margin-right: $margin-right;
+    &:nth-of-type(#{$columns}n) {
+      margin-right: 0;
+    }
+  } @else {
+    max-width: $max_basis;
+  }
+}
+
+@mixin font-size($size, $line_height:0) {
+  font-size: $size;
+
+  @if $size != 0 {
+    $remSize: $size / 16px;
+    font-size: $remSize * 1rem;
+  }
+
+  @if $line_height != 0 {
+    line-height: $line_height / $size;
+  }
 }
 
 .container {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding-right: 20px;
-  padding-left: 20px;
+  display: block;
+
+  @include media_interval($media1200, 0) {
+    padding: 0 110px;
+  }
+
+  @include media_interval($media1024, $media1200) {
+    padding: 0 54px;
+  }
+
+  @include media_interval($media768, $media1024) {
+    padding: 0 34px;
+  }
+
+  @include media_interval($media640, $media768) {
+    padding: 0 30px;
+  }
+
+  @include media_interval(0, $media640) {
+    padding: 0 20px;
+  }
 }
 
-.title-block {
-  margin: 0 0 20px 0;
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
-  &_one {
-    font-size: 30px;
-    text-transform: uppercase;
-  }
-  &_two {
-    font-size: 25px;
-    max-width: 500px;
-  }
+a {
+	text-decoration: none;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+
+img {
+	max-width: 100%;
+
+	line-height: 0;
+}
+
+picture {
+	line-height: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul {
+	margin: 0;
+	padding: 0;
 }

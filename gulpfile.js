@@ -1,14 +1,14 @@
 let gulp = require("gulp"),
-  sass = require("gulp-sass"),
-  autoprefixer = require("gulp-autoprefixer"),
-  cleanCSS = require("gulp-clean-css"),
-  babel = require("gulp-babel"),
-  uglify = require("gulp-uglify"),
-  del = require("del"),
-  browserSync = require("browser-sync"),
-  fileinclude = require("gulp-file-include"),
-  fs = require("fs-extra"),
-  path = require("path");
+    sass = require("gulp-sass"),
+    autoprefixer = require("gulp-autoprefixer"),
+    cleanCSS = require("gulp-clean-css"),
+    babel = require("gulp-babel"),
+    uglify = require("gulp-uglify"),
+    del = require("del"),
+    browserSync = require("browser-sync"),
+    fileinclude = require("gulp-file-include"),
+    fs = require("fs-extra"),
+    path = require("path");
 
 sass.compiler = require("node-sass"); // Переназначаем компилирование
 
@@ -69,13 +69,11 @@ function js(src, dest) {
 function fonts(src, dest) {
   fs.mkdirSync(dest, {recursive: true});
   fs.copy(src, dest);
-  // TODO: нужно сделать оптимизацию шрифтов
 }
 // Функция обработки картинок
 function img(src, dest) {
   fs.mkdirSync(dest, {recursive: true});
   fs.copy(src, dest);
-  // TODO: нужно сделать оптимизацию картинок
 }
 
 // Функция сборки проекта
@@ -115,6 +113,7 @@ async function buildProject() {
   img("./src/static/images", `./${finalFolder}/static/images`);
   // Обработка шрифтов
   fonts("./src/static/fonts", `./${finalFolder}/static/fonts`);
+  js("./src/static/js", `./${finalFolder}/static/js`);
 }
 
 // Функция которая слушает изменения файлов в проекте
