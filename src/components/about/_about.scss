@@ -1,0 +1,29 @@
+.about {
+  padding: 20px 0;
+
+  &__inner {
+    text-align: center;
+  }
+
+  &__icon {
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    max-width: 750px;
+    margin: 0 auto 16px auto;
+  }
+
+  &__link {
+    text-decoration: underline;
+    
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}

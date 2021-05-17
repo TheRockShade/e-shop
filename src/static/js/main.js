@@ -31,7 +31,7 @@ if (document.querySelector('.cards')) {
     function addCard(el) {
         cards.innerHTML += '' +
             '<li class="cards__item">\n' +
-            ' <a class="cards__link" href="/item/#' + el.alias + '">\n' +
+            ' <a class="cards__link" href="/catalog/item/#' + el.alias + '">\n' +
             '  <img class="cards__img" src="static/images/' + el.alias + '.png' + '">\n' +
             '  <h6 class="cards__title">' + el.brand + ' ' + el.model + '</h6>\n' +
             ' </a>\n' +
@@ -45,7 +45,5 @@ if (document.querySelector('.cards')) {
     goods.forEach((el) => {
         addCard(el);
     });
-
-    console.log(goods);
 }
 

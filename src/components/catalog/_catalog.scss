@@ -1,0 +1,27 @@
+.catalog {
+  padding: 60px 0;
+
+  &__all {
+    width: fit-content;
+    margin: 40px auto 0 auto;
+    display: flex;
+    align-items: center;
+
+    font-size: 18px;
+
+    transition: opacity .3s ease;
+
+    &-text {
+      margin-right: 5px;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: .7;
+    }
+
+    &:active {
+      opacity: .5;
+    }
+  }
+}

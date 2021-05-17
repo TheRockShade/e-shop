@@ -8,16 +8,12 @@
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/fonts/font-face.css" />
     <link rel="stylesheet" href="https://assets3.insales.ru/assets/static-versioned/1.99/static/icons/icons-minimal/style.css">
-    <title>Главная</title>
+    <title>Mono | Главная</title>
   </head>
   <body>
     @@include('header/index.html')
-    <section class="catalog">
-      <div class="catalog__inner container">
-        @@include('cards/index.html')
-      </div>
-    </section>
-
+    @@include('catalog/index.html')
+    @@include('about/index.html')
     @@include('footer/index.html')
     <script src="/static/js/main.js"></script>
     <script src="scripts.js"></script>
